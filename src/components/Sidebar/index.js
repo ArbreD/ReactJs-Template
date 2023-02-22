@@ -7,6 +7,8 @@ import {
   faStore,
   faClipboardCheck,
   faUser,
+  faFeather,
+  faFilter,
 } from "@fortawesome/free-solid-svg-icons";
 
 import "./SidebarLayout.scss";
@@ -66,6 +68,30 @@ function Sidebar() {
         <FontAwesomeIcon icon={faClipboardCheck} />,
         <Link to={config.routes.orderList}>Đơn hàng</Link>
       ),
+      getItem("product", <FontAwesomeIcon icon={faFeather} />, "Sản phẩm", [
+        getItem(
+          `${menuKeys.viewProductList}`,
+          null,
+          <Link to={config.routes.viewProductList}>Danh sách sản phẩm</Link>
+        ),
+        getItem(
+          `${menuKeys.addProduct}`,
+          null,
+          <Link to={config.routes.addProduct}>Tạo sản phẩm</Link>
+        ),
+      ]),
+      getItem("category", <FontAwesomeIcon icon={faFilter} />, "Phân loại", [
+        getItem(
+          `${menuKeys.viewCategoryList}`,
+          null,
+          <Link to={config.routes.viewCategoryList}>Danh sách loại hàng</Link>
+        ),
+        getItem(
+          `${menuKeys.addCategory}`,
+          null,
+          <Link to={config.routes.addCategory}>Tạo loại hàng</Link>
+        ),
+      ]),
       getItem("account", <FontAwesomeIcon icon={faUser} />, "Tài khoản", [
         getItem(
           `${menuKeys.accountProfile}`,
